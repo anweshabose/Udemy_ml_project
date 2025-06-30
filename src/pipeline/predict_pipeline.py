@@ -15,9 +15,9 @@ class PredictPipeline:
             preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
             logging.info("Before Loading")
             model=load_object(file_path=model_path)
-            preprocessor=load_object(file_path=preprocessor_path)
+            preprocessor=load_object(file_path=preprocessor_path) # preprocessor is a pickle object. load_object function is jst helping to open the file
             logging.info("After Loading")
-            data_scaled=preprocessor.transform(features)
+            data_scaled=preprocessor.transform(features) # dataframe is transformed to pickle object and stored in data_scaled variable.
             preds=model.predict(data_scaled)
             return preds
         
